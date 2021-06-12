@@ -1,7 +1,9 @@
 package com.example.a109_2_final_project;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -56,10 +58,14 @@ public class addDataActivity extends AppCompatActivity implements AdapterView.On
     }
 
     public void cancelOnclick(View view){
-
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //參考https://www.itread01.com/content/1550323443.html
+        startActivity(intent);
     }
 
     public void saveOnclick(View view){
-
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //參考https://www.itread01.com/content/1550323443.html
+        startActivity(intent);
     }
 }
