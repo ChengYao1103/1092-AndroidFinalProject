@@ -3,6 +3,9 @@ package com.example.a109_2_final_project;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverter;
+
+import java.util.Date;
 
 @Entity(tableName = "log")
 public class Log {
@@ -19,11 +22,14 @@ public class Log {
     @NonNull
     private String description;
 
-    public Log(int id, @NonNull int type, @NonNull int value, @NonNull String description){
+    private Date createAt;
+
+    public Log(int id, @NonNull int type, @NonNull int value, @NonNull String description, @NonNull Date createAt){
         this.id = id;
         this.type = type;
         this.value = value;
         this.description = description;
+        this.createAt = createAt;
     }
 
     public int getId() {
@@ -52,5 +58,11 @@ public class Log {
     }
     public void setValue(@NonNull int value) {
         this.value = value;
+    }
+    public Date getCreateAt() {
+        return createAt;
+    }
+    public void setCreateAt(@NonNull Date date) {
+        this.createAt = date;
     }
 }

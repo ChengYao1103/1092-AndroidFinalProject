@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class addDataActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -79,7 +80,7 @@ public class addDataActivity extends AppCompatActivity implements AdapterView.On
     public void saveOnclick(View view){
         Intent intent = new Intent(this, MainActivity.class);
         int valueint = Integer.parseInt(value.getText().toString());
-        Log logx = new Log(0, spinner_type.getSelectedItemPosition(), valueint, description.getText().toString());
+        Log logx = new Log(0, spinner_type.getSelectedItemPosition(), valueint, description.getText().toString(), Calendar.getInstance().getTime());
         viewModel.insert(logx);
         this.testLog();
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //參考https://www.itread01.com/content/1550323443.html

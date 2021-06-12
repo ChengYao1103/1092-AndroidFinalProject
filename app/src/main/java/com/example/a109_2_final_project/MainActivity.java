@@ -5,15 +5,28 @@ import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import java.util.Collections;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    private LogViewModel viewModel;
+    private List<Log> logs;
+    TextView totalTotal, totalPlus, totalMinus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +44,11 @@ public class MainActivity extends AppCompatActivity {
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
             }
         });
+        viewModel = ViewModelProviders.of(this).get(LogViewModel.class);
+        totalTotal = findViewById(R.id.total_total);
+        totalPlus = findViewById(R.id.total_plus);
+        totalMinus = findViewById(R.id.total_minus);
+        this.initData();
     }
 
     @Override
@@ -55,4 +73,46 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
+
+    public void initData() {
+        MainActivity self = this;
+        viewModel.getAllLogs().observe(this, new Observer<List<Log>>() {
+            @Override
+            public void onChanged(List<Log> logs) {
+                self.logs = logs;
+                self.initTotalSum();
+                self.initTotalPlus();
+                self.initTotalMinus();
+            }
+        });
+    }
+
+    public void initTotalSum() {
+        int amount = 0;
+        for(Log log : this.logs) {
+            amount += log.getValue();
+        }
+        totalTotal.setText(amount + "");
+    }
+
+    public void initTotalPlus() {
+        int amount = 0;
+        for(Log log : this.logs) {
+            if (log.getValue() > 0) {
+                amount += log.getValue();
+            }
+        }
+        totalPlus.setText(amount + "");
+    }
+
+    public void initTotalMinus() {
+        int amount = 0;
+        for(Log log : this.logs) {
+            if (log.getValue() < 0) {
+                amount += -log.getValue();
+            }
+        }
+        totalMinus.setText(amount + "");
+    }
+
 }

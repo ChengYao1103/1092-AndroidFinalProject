@@ -35,6 +35,17 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 tools:text="@tools:sample/lorem" />
+
+            <TextView
+                android:id="@+id/word_createAt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:layout_weight="1"
+                android:textAlignment="textEnd"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="@tools:sample/lorem" />
         </LinearLayout>
 
         <TextView

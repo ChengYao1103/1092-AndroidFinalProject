@@ -17,12 +17,14 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
     private final LinkedList<String> mTypeList;
     private final LinkedList<String> mValueList;
     private final LinkedList<String> mDescribeList;
+    private final LinkedList<String> mCreateAtList;
     private final LayoutInflater mInflater;
 
     class WordViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public final TextView wordTypeView;
         public final TextView wordValueView;
         public final TextView wordDesView;
+        public final TextView wordDateView;
         final WordListAdapter mAdapter;
 
 
@@ -31,6 +33,7 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
             wordTypeView = itemView.findViewById(R.id.word_type);
             wordValueView = itemView.findViewById(R.id.word_value);
             wordDesView = itemView.findViewById(R.id.word_describe);
+            wordDateView = itemView.findViewById(R.id.word_createAt);
             this.mAdapter = adapter;
             itemView.setOnClickListener(this);
         }
@@ -54,11 +57,12 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
         }
     }
 
-    public WordListAdapter(Context context, LinkedList<String> wordList_type, LinkedList<String> wordList_value, LinkedList<String> wordList_describe) {
+    public WordListAdapter(Context context, LinkedList<String> wordList_type, LinkedList<String> wordList_value, LinkedList<String> wordList_describe, LinkedList<String> wordList_createAt) {
         mInflater = LayoutInflater.from(context);
         this.mTypeList = wordList_type;
         this.mValueList = wordList_value;
         this.mDescribeList = wordList_describe;
+        this.mCreateAtList = wordList_createAt;
     }
 
     @NonNull
@@ -75,9 +79,11 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
         String mCurrent_type = mTypeList.get(position);
         String mCurrent_value = mValueList.get(position);
         String mCurrent_describe = mDescribeList.get(position);
+        String mCurrent_createAt = mCreateAtList.get(position);
         holder.wordTypeView.setText(mCurrent_type);
         holder.wordValueView.setText(mCurrent_value);
         holder.wordDesView.setText(mCurrent_describe);
+        holder.wordDateView.setText(mCurrent_createAt);
     }
 
     @Override

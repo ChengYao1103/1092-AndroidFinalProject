@@ -7,9 +7,14 @@ import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {Log.class}, version = 1, exportSchema = false)
+import java.util.Calendar;
+import java.util.Date;
+
+@Database(entities = {Log.class}, version = 2, exportSchema = false)
+@TypeConverters({DateConverters.class})
 abstract class LogRoomDatabase extends RoomDatabase {
 
     abstract LogDao logDao();
@@ -44,6 +49,7 @@ abstract class LogRoomDatabase extends RoomDatabase {
         private int type = 0;
         private int value = 0;
         private String description = "description";
+        private Date createAt = Calendar.getInstance().getTime();
 
         PopulateDbAsync(LogRoomDatabase db) {
             mDao = db.logDao();
@@ -51,7 +57,7 @@ abstract class LogRoomDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(final Void... params) {
-            Log log = new Log(0, type, value, description);
+            Log log = new Log(0, type, value, description, createAt);
             //mDao.insert(log);
             return null;
         }
