@@ -12,7 +12,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 @Database(entities = {Log.class}, version = 1, exportSchema = false)
 abstract class LogRoomDatabase extends RoomDatabase {
 
-    abstract LogDao noteDao();
+    abstract LogDao logDao();
 
     private static LogRoomDatabase INSTANCE;
 
@@ -46,7 +46,7 @@ abstract class LogRoomDatabase extends RoomDatabase {
         private String description = "description";
 
         PopulateDbAsync(LogRoomDatabase db) {
-            mDao = db.noteDao();
+            mDao = db.logDao();
         }
 
         @Override

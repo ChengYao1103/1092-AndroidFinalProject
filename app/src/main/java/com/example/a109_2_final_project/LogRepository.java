@@ -13,7 +13,7 @@ public class LogRepository {
 
     LogRepository(Application application){
         LogRoomDatabase db = LogRoomDatabase.getDatabase(application);
-        logDao = db.noteDao();
+        logDao = db.logDao();
         mAllLogs = logDao.getAllLogs();
     }
 
