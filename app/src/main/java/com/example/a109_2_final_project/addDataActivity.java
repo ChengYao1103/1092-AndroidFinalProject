@@ -2,19 +2,28 @@ package com.example.a109_2_final_project;
 
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.util.List;
 
 public class addDataActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private Spinner mSpin;
     private int mType;
+    private Spinner spinner_type;
+    private EditText value;
+    private EditText description;
+    private LogViewModel viewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +48,10 @@ public class addDataActivity extends AppCompatActivity implements AdapterView.On
         if (mSpin != null) {
             mSpin.setAdapter(adapter);
         }
+        spinner_type = findViewById(R.id.spinner_type);
+        value = findViewById(R.id.value);
+        description = findViewById(R.id.description);
+        viewModel = ViewModelProviders.of(this).get(LogViewModel.class);
     }
 
     public void displayToast(String message) {
@@ -65,7 +78,22 @@ public class addDataActivity extends AppCompatActivity implements AdapterView.On
 
     public void saveOnclick(View view){
         Intent intent = new Intent(this, MainActivity.class);
+        int valueint = Integer.parseInt(value.getText().toString());
+        Log logx = new Log(0, spinner_type.getSelectedItemPosition(), valueint, description.getText().toString());
+        viewModel.insert(logx);
+        this.testLog();
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //參考https://www.itread01.com/content/1550323443.html
         startActivity(intent);
+    }
+
+    public void testLog() {
+        viewModel.getAllLogs().observe(this, new Observer<List<Log>>() {
+            @Override
+            public void onChanged(List<Log> logs) {
+                for(Log l : logs) {
+                    android.util.Log.d("info", l.getId() + ":: Type" + l.getType() + "  Value" + l.getValue() + "  Desc::" + l.getDescription());
+                }
+            }
+        });
     }
 }
