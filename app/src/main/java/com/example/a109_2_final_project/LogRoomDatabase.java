@@ -52,7 +52,7 @@ abstract class LogRoomDatabase extends RoomDatabase {
         @Override
         protected Void doInBackground(final Void... params) {
             Log log = new Log(0, type, value, description);
-            mDao.insert(log);
+            //mDao.insert(log);
             return null;
         }
     }
