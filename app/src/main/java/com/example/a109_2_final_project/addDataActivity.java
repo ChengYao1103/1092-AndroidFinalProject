@@ -45,12 +45,21 @@ public class addDataActivity extends AppCompatActivity implements AdapterView.On
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        //參考04.2內容
         String spinnerLabel = parent.getItemAtPosition(position).toString();
         displayToast(spinnerLabel);
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+        //參考04.2內容
+    }
+
+    public void cancelOnclick(View view){
+
+    }
+
+    public void saveOnclick(View view){
 
     }
 }
