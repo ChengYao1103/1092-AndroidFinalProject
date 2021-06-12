@@ -26,6 +26,30 @@
         app:layout_constraintStart_toEndOf="@+id/textView_type"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/spinner_type"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/radioButton_plus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="radioSelected"
+            android:text="@string/radio_plus" />
+
+        <RadioButton
+            android:id="@+id/radioButton_minus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="radioSelected"
+            android:text="@string/radio_minus" />
+    </RadioGroup>
+
     <TextView
         android:id="@+id/textView_value"
         android:layout_width="wrap_content"

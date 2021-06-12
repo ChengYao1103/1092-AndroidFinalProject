@@ -25,7 +25,7 @@ public class logActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private WordListAdapter mAdapter;
     private LogViewModel viewModel;
-    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
     private List<Log> logs;
 
     @Override

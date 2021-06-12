@@ -5,21 +5,18 @@ import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private LogViewModel viewModel;
     private List<Log> logs;
     TextView totalTotal, totalPlus, totalMinus;
+    private Button mBtn1, mBtn2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        /*FloatingActionButton fab = findViewById(R.id.fab);
         Intent intent = new Intent(this, addDataActivity.class);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,10 +42,20 @@ public class MainActivity extends AppCompatActivity {
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
             }
         });
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_menu_add" />*/
+
         viewModel = ViewModelProviders.of(this).get(LogViewModel.class);
         totalTotal = findViewById(R.id.total_total);
         totalPlus = findViewById(R.id.total_plus);
         totalMinus = findViewById(R.id.total_minus);
+        mBtn1 = findViewById(R.id.button_addData);
+        mBtn2 = findViewById(R.id.button_history);
         this.initData();
     }
 
@@ -67,10 +75,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_log) {
+        /*if (id == R.id.action_log) {
             Intent intent = new Intent(this, logActivity.class);
             startActivity(intent);
-        }
+        }*/
         return false;
     }
 
@@ -115,4 +123,13 @@ public class MainActivity extends AppCompatActivity {
         totalMinus.setText(amount + "");
     }
 
+    public void addBtnClicked(View view){
+        Intent intent = new Intent(this, addDataActivity.class);
+        startActivity(intent);
+    }
+
+    public void historyBtnClicked(View view){
+        Intent intent = new Intent(this, logActivity.class);
+        startActivity(intent);
+    }
 }

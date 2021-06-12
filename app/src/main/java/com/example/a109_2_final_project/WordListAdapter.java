@@ -1,6 +1,7 @@
 package com.example.a109_2_final_project;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
     private final LinkedList<String> mDescribeList;
     private final LinkedList<String> mCreateAtList;
     private final LayoutInflater mInflater;
+    private Context mContext;
 
     class WordViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public final TextView wordTypeView;
@@ -58,6 +60,7 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
     }
 
     public WordListAdapter(Context context, LinkedList<String> wordList_type, LinkedList<String> wordList_value, LinkedList<String> wordList_describe, LinkedList<String> wordList_createAt) {
+        mContext = context;
         mInflater = LayoutInflater.from(context);
         this.mTypeList = wordList_type;
         this.mValueList = wordList_value;
@@ -78,12 +81,51 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
     public void onBindViewHolder(@NonNull WordListAdapter.WordViewHolder holder, int position) {
         String mCurrent_type = mTypeList.get(position);
         String mCurrent_value = mValueList.get(position);
+        int value = Integer.parseInt(mCurrent_value);
         String mCurrent_describe = mDescribeList.get(position);
         String mCurrent_createAt = mCreateAtList.get(position);
         holder.wordTypeView.setText(mCurrent_type);
+        holder.wordTypeView.setTextColor(mContext.getResources().getColor(R.color.white));
         holder.wordValueView.setText(mCurrent_value);
         holder.wordDesView.setText(mCurrent_describe);
         holder.wordDateView.setText(mCurrent_createAt);
+
+        if(value > 0){
+            holder.wordValueView.setTextColor(mContext.getResources().getColor(R.color.green));
+        }
+        else {
+            holder.wordValueView.setTextColor(mContext.getResources().getColor(R.color.red));
+        }
+
+        Log.d("TEST", mCurrent_type);
+        switch (mCurrent_type){
+            case "工作":
+                holder.wordTypeView.setBackgroundColor(mContext.getResources().getColor(R.color.purple_200));
+                break;
+            case "飲食":
+                holder.wordTypeView.setBackgroundColor(mContext.getResources().getColor(R.color.purple_500));
+                break;
+            case "帳單":
+                holder.wordTypeView.setBackgroundColor(mContext.getResources().getColor(R.color.teal_200));
+                break;
+            case "交通":
+                holder.wordTypeView.setBackgroundColor(mContext.getResources().getColor(R.color.teal_700));
+                break;
+            case "生活":
+                holder.wordTypeView.setBackgroundColor(mContext.getResources().getColor(R.color.primary));
+                break;
+            case "娛樂":
+                holder.wordTypeView.setBackgroundColor(mContext.getResources().getColor(R.color.pink));
+                break;
+            case "投資":
+                holder.wordTypeView.setBackgroundColor(mContext.getResources().getColor(R.color.yellow));
+                break;
+            case "其他":
+                holder.wordTypeView.setBackgroundColor(mContext.getResources().getColor(R.color.gray));
+                break;
+            default:
+                break;
+        }
     }
 
     @Override

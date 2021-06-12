@@ -1,6 +1,5 @@
 package com.example.a109_2_final_project;
 
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -11,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -20,7 +20,7 @@ import java.util.List;
 public class addDataActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private Spinner mSpin;
-    private int mType;
+    private int mValuetype = 0;
     private Spinner spinner_type;
     private EditText value;
     private EditText description;
@@ -71,6 +71,25 @@ public class addDataActivity extends AppCompatActivity implements AdapterView.On
         //參考04.2內容
     }
 
+    public void radioSelected(View view){
+        //參考04.2
+        Boolean isChecked = ((RadioButton)view).isChecked();
+        switch (view.getId()){
+            case R.id.radioButton_plus:
+                if(isChecked){
+                    mValuetype = 1;
+                }
+                break;
+            case R.id.radioButton_minus:
+                if(isChecked){
+                    mValuetype = -1;
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
     public void cancelOnclick(View view){
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //參考https://www.itread01.com/content/1550323443.html
@@ -80,7 +99,7 @@ public class addDataActivity extends AppCompatActivity implements AdapterView.On
     public void saveOnclick(View view){
         Intent intent = new Intent(this, MainActivity.class);
         int valueint = Integer.parseInt(value.getText().toString());
-        Log logx = new Log(0, spinner_type.getSelectedItemPosition(), valueint, description.getText().toString(), Calendar.getInstance().getTime());
+        Log logx = new Log(0, spinner_type.getSelectedItemPosition(), valueint*mValuetype, description.getText().toString(), Calendar.getInstance().getTime());
         viewModel.insert(logx);
         this.testLog();
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //參考https://www.itread01.com/content/1550323443.html

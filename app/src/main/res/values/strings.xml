@@ -1,6 +1,11 @@
 <resources>
-    <string name="app_name">109_2_final_project</string>
-    <string name="action_log">history</string>
+    <string name="app_name">109_2_final_project_group6</string>
+    <string name="action_log">紀錄</string>
+    <string name="text_total">總金額</string>
+    <string name="text_plus">收入</string>
+    <string name="text_minus">支出</string>
+    <string name="btn_add">記帳</string>
+    <string name="btn_history">紀錄</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -13,6 +18,9 @@
     <string name="text_type">類別</string>
     <string name="text_value">金額</string>
     <string name="text_describe">備註</string>
+
+    <string name="radio_plus">收入</string>
+    <string name="radio_minus">支出</string>
 
     <string-array name="labels_array">
         <item>工作</item>
