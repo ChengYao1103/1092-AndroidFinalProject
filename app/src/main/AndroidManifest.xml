@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.109_2_final_project">
+        <activity android:name=".addDataActivity"></activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

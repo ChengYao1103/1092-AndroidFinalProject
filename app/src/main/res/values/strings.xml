@@ -9,4 +9,20 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- 記帳頁面 -->
+    <string name="text_type">類別</string>
+    <string name="text_value">金額</string>
+    <string name="text_describe">備註</string>
+
+    <string-array name="labels_array">
+        <item>工作</item>
+        <item>飲食</item>
+        <item>帳單</item>
+        <item>交通</item>
+        <item>生活</item>
+        <item>娛樂</item>
+        <item>投資</item>
+        <item>其他</item>
+    </string-array>
+    
 </resources>
