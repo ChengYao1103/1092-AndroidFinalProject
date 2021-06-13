@@ -60,15 +60,11 @@ public class addDataActivity extends AppCompatActivity implements AdapterView.On
         mValuetype = -1;
     }
 
-    public void displayToast(String message) {
-        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
-    }
-
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         //參考04.2內容
-        String spinnerLabel = parent.getItemAtPosition(position).toString();
-        displayToast(spinnerLabel);
+        //String spinnerLabel = parent.getItemAtPosition(position).toString();
+        //displayToast(spinnerLabel);
     }
 
     @Override
@@ -103,12 +99,18 @@ public class addDataActivity extends AppCompatActivity implements AdapterView.On
 
     public void saveOnclick(View view){
         Intent intent = new Intent(this, MainActivity.class);
-        int valueint = Integer.parseInt(value.getText().toString());
-        Log logx = new Log(0, spinner_type.getSelectedItemPosition(), valueint*mValuetype, description.getText().toString(), Calendar.getInstance().getTime());
-        viewModel.insert(logx);
-        this.testLog();
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //參考https://www.itread01.com/content/1550323443.html
-        startActivity(intent);
+        if(value.getText().toString().matches("")){
+            Toast.makeText(getApplicationContext(), "金額不得為空", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            int valueint = Integer.parseInt(value.getText().toString());
+            Log logx = new Log(0, spinner_type.getSelectedItemPosition(), valueint*mValuetype, description.getText().toString(), Calendar.getInstance().getTime());
+            viewModel.insert(logx);
+            this.testLog();
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //參考https://www.itread01.com/content/1550323443.html
+            startActivity(intent);
+        }
+
     }
 
     public void testLog() {

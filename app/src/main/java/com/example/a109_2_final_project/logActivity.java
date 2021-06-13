@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Collections;
@@ -34,6 +35,7 @@ public class logActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log);
         this.initList();
+        Toast.makeText(getApplicationContext(), "左右滑動以移除該項目", Toast.LENGTH_SHORT).show();
     }
 
     public void initList() {

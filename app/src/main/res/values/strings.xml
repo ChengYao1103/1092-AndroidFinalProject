@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">109_2_final_project_group6</string>
     <string name="action_count">各項收支統計</string>
-    <string name="text_total">總金額</string>
+    <string name="text_total">收支總和</string>
     <string name="text_plus">收入</string>
     <string name="text_minus">支出</string>
     <string name="btn_add">記帳</string>
@@ -13,6 +13,8 @@
     <string name="text_describe">備註</string>
     <string name="radio_plus">收入</string>
     <string name="radio_minus">支出</string>
+    <string name="btn_save">儲存</string>
+    <string name="btn_cancel">取消</string>
     <string-array name="labels_array">
         <item>工作</item>
         <item>飲食</item>

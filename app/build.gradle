@@ -40,6 +40,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     // androidX room components
     implementation 'androidx.room:room-runtime:2.4.0-alpha02'
+    androidTestImplementation 'androidx.test:rules:1.4.0-beta02'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.4.0-beta02'
     annotationProcessor 'androidx.room:room-compiler:2.4.0-alpha02'
     androidTestImplementation 'androidx.room:room-testing:2.4.0-alpha02'
 
