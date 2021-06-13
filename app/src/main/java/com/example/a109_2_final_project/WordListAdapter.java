@@ -100,28 +100,28 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
         Log.d("TEST", mCurrent_type);
         switch (mCurrent_type){
             case "工作":
-                holder.wordTypeView.setBackgroundColor(mContext.getResources().getColor(R.color.purple_200));
+                holder.wordTypeView.setBackgroundColor(mContext.getResources().getColor(R.color.type0));
                 break;
             case "飲食":
-                holder.wordTypeView.setBackgroundColor(mContext.getResources().getColor(R.color.purple_500));
+                holder.wordTypeView.setBackgroundColor(mContext.getResources().getColor(R.color.type1));
                 break;
             case "帳單":
-                holder.wordTypeView.setBackgroundColor(mContext.getResources().getColor(R.color.teal_200));
+                holder.wordTypeView.setBackgroundColor(mContext.getResources().getColor(R.color.type2));
                 break;
             case "交通":
-                holder.wordTypeView.setBackgroundColor(mContext.getResources().getColor(R.color.teal_700));
+                holder.wordTypeView.setBackgroundColor(mContext.getResources().getColor(R.color.type3));
                 break;
             case "生活":
-                holder.wordTypeView.setBackgroundColor(mContext.getResources().getColor(R.color.primary));
+                holder.wordTypeView.setBackgroundColor(mContext.getResources().getColor(R.color.type4));
                 break;
             case "娛樂":
-                holder.wordTypeView.setBackgroundColor(mContext.getResources().getColor(R.color.pink));
+                holder.wordTypeView.setBackgroundColor(mContext.getResources().getColor(R.color.type5));
                 break;
             case "投資":
-                holder.wordTypeView.setBackgroundColor(mContext.getResources().getColor(R.color.yellow));
+                holder.wordTypeView.setBackgroundColor(mContext.getResources().getColor(R.color.type6));
                 break;
             case "其他":
-                holder.wordTypeView.setBackgroundColor(mContext.getResources().getColor(R.color.gray));
+                holder.wordTypeView.setBackgroundColor(mContext.getResources().getColor(R.color.type7));
                 break;
             default:
                 break;

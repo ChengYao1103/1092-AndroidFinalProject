@@ -75,11 +75,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         //noinspection SimplifiableIfStatement
-        /*if (id == R.id.action_log) {
-            Intent intent = new Intent(this, logActivity.class);
+        if (id == R.id.action_count) {
+            Intent intent = new Intent(this, countActivity.class);
             startActivity(intent);
-        }*/
-        return false;
+        }
+        return true;
     }
 
     public void initData() {

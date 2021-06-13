@@ -24,15 +24,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textSize="16sp"
+                android:textSize="12pt"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/word_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
-                android:textSize="16sp"
+                android:layout_marginLeft="16dp"
+                android:textSize="10pt"
                 android:textStyle="bold"
                 tools:text="@tools:sample/lorem" />
 
@@ -43,7 +43,7 @@
                 android:layout_marginLeft="6dp"
                 android:layout_weight="1"
                 android:textAlignment="textEnd"
-                android:textSize="16sp"
+                android:textSize="6pt"
                 android:textStyle="bold"
                 tools:text="@tools:sample/lorem" />
         </LinearLayout>
@@ -52,7 +52,7 @@
             android:id="@+id/word_describe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
+            android:textSize="8pt"
             tools:text="@tools:sample/lorem" />
 
         <View

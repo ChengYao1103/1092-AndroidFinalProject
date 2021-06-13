@@ -9,7 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.109_2_final_project">
-        <activity android:name=".logActivity"
+        <activity android:name=".countActivity"
+            android:label="@string/action_count"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".logActivity"
             android:label="歷史紀錄"
             android:parentActivityName=".MainActivity">
             <meta-data

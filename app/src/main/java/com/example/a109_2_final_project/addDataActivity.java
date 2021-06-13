@@ -22,6 +22,7 @@ public class addDataActivity extends AppCompatActivity implements AdapterView.On
     private Spinner mSpin;
     private int mValuetype = 0;
     private Spinner spinner_type;
+    private RadioButton mRadio1;
     private EditText value;
     private EditText description;
     private LogViewModel viewModel;
@@ -53,6 +54,10 @@ public class addDataActivity extends AppCompatActivity implements AdapterView.On
         value = findViewById(R.id.value);
         description = findViewById(R.id.description);
         viewModel = ViewModelProviders.of(this).get(LogViewModel.class);
+
+        mRadio1 = findViewById(R.id.radioButton_minus);
+        mRadio1.setChecked(true);
+        mValuetype = -1;
     }
 
     public void displayToast(String message) {

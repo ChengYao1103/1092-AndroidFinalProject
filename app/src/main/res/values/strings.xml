@@ -1,27 +1,18 @@
 <resources>
     <string name="app_name">109_2_final_project_group6</string>
-    <string name="action_log">紀錄</string>
+    <string name="action_count">各項收支統計</string>
     <string name="text_total">總金額</string>
     <string name="text_plus">收入</string>
     <string name="text_minus">支出</string>
     <string name="btn_add">記帳</string>
     <string name="btn_history">紀錄</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <!-- 記帳頁面 -->
     <string name="text_type">類別</string>
     <string name="text_value">金額</string>
     <string name="text_describe">備註</string>
-
     <string name="radio_plus">收入</string>
     <string name="radio_minus">支出</string>
-
     <string-array name="labels_array">
         <item>工作</item>
         <item>飲食</item>
@@ -32,5 +23,16 @@
         <item>投資</item>
         <item>其他</item>
     </string-array>
+
+    <!-- 統計頁面 -->
+    <string name="text_type0">工作</string>
+    <string name="text_type1">飲食</string>
+    <string name="text_type2">帳單</string>
+    <string name="text_type3">交通</string>
+    <string name="text_type4">生活</string>
+    <string name="text_type5">娛樂</string>
+    <string name="text_type6">投資</string>
+    <string name="text_type7">其他</string>
+    <string name="total_init">0</string>
 
 </resources>
